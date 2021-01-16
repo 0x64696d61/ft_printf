@@ -17,6 +17,8 @@ void run_processor(struct s_flags *flag, va_list *ap)
 			while(flag->precision--)
 				printf("%c", *string++);
 		}
+		else
+			printf("%s", string);	
 	}
 	if (flag->conversion == INTEGER)
 	{
