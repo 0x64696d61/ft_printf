@@ -3,7 +3,7 @@
 void draw_integer(struct s_flags *flag, va_list *ap)
 {
 	int num;
-	int offset;
+	int offset = 0;
 	char *string;
 
 	if (flag->width == -1)
@@ -12,23 +12,23 @@ void draw_integer(struct s_flags *flag, va_list *ap)
 		flag->precision = va_arg(*ap, int);
 
 	num = va_arg(*ap, int);
+
+	if (num < 0)
+	{
+		num *= -1;
+		ft_putchar('-');
+	}
 	string = ft_itoa(num);
 
 	if (flag->precision > 0)
-		offset = flag->width - flag->precision;
-	else
+		offset = flag->precision - (int)ft_strlen(string);
+	else if (flag->width > 0)
 		offset = flag->width - (int)ft_strlen(string);
 
-	if ((offset  > 0) && (flag->minus == 0))
-		{
-			if (num < 0)
-			{
-				num *= -1;
-				ft_putchar('-');
-			}
+	if (offset > 0)
 			while(offset--)
-				ft_putchar(flag->zero);
-		}
+				ft_putchar('0');
+
 	if (flag->precision > 0)
 		while(flag->precision--)
 			ft_putchar(*string++);

@@ -25,4 +25,8 @@ int main()
 	printf("or_printf: %015d10 sdfsfsdf\n", num);
 	ft_printf("ft_printf: %015d10 sdfsfsdf\n", num);
 
+
+	printf("or_printf: %.5dTT sdfsfsdf\n", num);
+	ft_printf("ft_printf: %.5dTT sdfsfsdf\n", num);
+
 }
