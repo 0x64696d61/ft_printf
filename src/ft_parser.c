@@ -1,37 +1,5 @@
 #include "../include/ft_printf.h"
 
-struct s_flags *init_flags(void)
-{
-	flag.zero = 0;
-	flag.width = 0;
-	flag.precision = 0;
-	flag.minus = 0;
-	flag.dot = 0;
-	flag.conversion = 0;
-	return (&flag);
-}
-
-int check_flags(struct s_flags *flag)
-{
-	if (flag->zero || flag->width || flag->precision || flag->precision || flag->minus || flag->dot || flag->conversion)
-	{
-		return (1);
-	}
-	return (0);
-}
-
-void print_flags(struct s_flags *flag)
-{
-	printf("\n******* flags ******\n");
-	printf("zero: %d\n", flag->zero);
-	printf("width: %d\n", flag->width);
-	printf("precision: %d\n", flag->precision);
-	printf("minus: %d\n", flag->minus);
-	printf("dot: %d\n", flag->dot);
-	printf("conversion: %d\n", flag->conversion);
-	printf("******* end flags ******\n");
-}
-
 /* 1 - c; 2 - s; 3 - p; 4 - d; 5 - i; 6 - u; 7 - x; 8 - X */
 int decode_conversion(char *str)
 {
@@ -122,6 +90,7 @@ struct s_flags *line_parser(char **str, struct s_flags *flag)
 		}
 		else
 		{
+			//ft_putstr(&(**str));
 			printf("%c", **str);
 			(*str)++;
 		}

@@ -2,23 +2,36 @@
 
 void run_processor(struct s_flags *flag, va_list *ap)
 {
+	int offset;
+	char symb;
+
 	if (DEBUG)
 		printf("\nDEBUG MODE: Inpit data to run_processor\n");
+
+	symb = (flag->zero) ? '0' : ' ';
 
 	if (flag->conversion == STRING)
 	{
 		if (DEBUG)
 			printf("This is STRING\n");
+		if (flag->width == -1)
+			flag->width = va_arg(*ap, int);
 		if (flag->precision == -1)
 			flag->precision = va_arg(*ap, int);
+
 		char *string = va_arg(*ap, char*);
+		if ((offset = flag->width - (int)ft_strlen(string)) > 0)
+			while(offset--)
+				ft_putchar(symb);
 		if (flag->precision > 0)
 		{
 			while(flag->precision--)
-				printf("%c", *string++);
+				ft_putchar(*string++);
 		}
 		else
-			printf("%s", string);	
+			ft_putstr(string);
+
+
 	}
 	if (flag->conversion == INTEGER)
 	{
@@ -31,15 +44,13 @@ void run_processor(struct s_flags *flag, va_list *ap)
 		{
 			while(--flag->width)
 			{
-				if (flag->zero)
-					printf("0");
-				else if (flag->zero == -1)
+				if (flag->zero == -1)
 				{
 					string = va_arg(*ap, int);
 					printf("%d", string);
 				}
 				else
-					printf(" ");
+					printf("%c", symb);
 			}
 		}
 		string = va_arg(*ap, int);

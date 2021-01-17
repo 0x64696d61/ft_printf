@@ -1,7 +1,10 @@
 NAME =		libftprintf.a
 
 SRC_DIR =	src/
-SRC_FILES =	ft_printf.c ft_parser.c ft_processor.c
+SRC_FILES =	ft_printf.c \
+			ft_parser.c \
+			ft_processor.c \
+			ft_flags_manager.c
 
 OBJS =		${addprefix ${SRC_DIR},${SRC_FILES:.c=.o}}
 
@@ -20,7 +23,7 @@ ${NAME}:	${OBJS}
 	cp ${LIBDIR}/${LIBFT} ${NAME}
 	ar -vrc ${NAME} ${OBJS}
 	#ar -rcS ${NAME} ${OBJS} ${LIBDIR}/${LIBFT}
-#	/Users/pstrait/projects/cmd.sh
+	tests/run.sh
 
 all :		${NAME}
 
