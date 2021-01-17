@@ -6,7 +6,7 @@
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 16:19:26 by pstrait           #+#    #+#             */
-/*   Updated: 2020/11/20 19:58:17 by pstrait          ###   ########.fr       */
+/*   Updated: 2021/01/17 19:31:27 by pstrait          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,5 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putstr(char *s);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+void	ft_putnbr(int n);
 #endif

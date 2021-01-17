@@ -2,9 +2,11 @@ NAME =		libftprintf.a
 
 SRC_DIR =	src/
 SRC_FILES =	ft_printf.c \
-			ft_parser.c \
-			ft_processor.c \
-			ft_flags_manager.c
+			parser/ft_parser.c \
+			parser/ft_flags_manager.c \
+			processor/ft_processor.c \
+			processor/string.c \
+			processor/integer.c \
 
 OBJS =		${addprefix ${SRC_DIR},${SRC_FILES:.c=.o}}
 

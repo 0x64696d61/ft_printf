@@ -4,7 +4,7 @@
 int decode_conversion(char *str)
 {
 	if (DEBUG)
-		printf("\nDEBUG MODE: Inpit data to decode_operation: %c\n", *str);
+		printf("\nDEBUG MODE: Input data to decode_operation: %c\n", *str);
 
 	if (*str == 'c')
 	 	return (1);
@@ -17,7 +17,10 @@ int decode_conversion(char *str)
 	else if (*str == 'i' || *str == 'u')
 		return 5;
 	else
+	{
+		ft_putstr("write code...\n");
 		return -1;
+	}
 }
 /*
 	-
@@ -31,7 +34,7 @@ int decode_conversion(char *str)
 struct s_flags *line_parser(char **str, struct s_flags *flag)
 {
 	if (DEBUG)
-		printf("\nDEBUG MODE: Inpit data to line_parser: %s\n", *str);
+		printf("\nDEBUG MODE: Input data to line_parser: %s\n", *str);
 
 	while(**str)
 	{
@@ -43,17 +46,17 @@ struct s_flags *line_parser(char **str, struct s_flags *flag)
 					ft_putchar(**str);
 					break;
 				}
-				if ((**str == '-') && (ft_isdigit(**(str + 1))))
+				if ((**str == '-') && (ft_isdigit(*((*str) + 1))))
 				{
 					flag->minus = 1;
 					(*str)++;
 				}
 				else if (**str == '0')
 				{
-					flag->zero = 1;
+					flag->zero = 48;
 					(*str)++;
 				}
-				if (((**str == '*') || (ft_isdigit(**(str)))) && (**(str - 1) != '.'))
+				if (((**str == '*') || (ft_isdigit(**(str)))) && (*((*str) - 1) != '.'))
 				{
 
 					if (**str == '*')

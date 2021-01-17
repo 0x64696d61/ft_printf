@@ -2,7 +2,7 @@
 
 struct s_flags *init_flags(void)
 {
-	flag.zero = 0;
+	flag.zero = 32;
 	flag.width = 0;
 	flag.precision = 0;
 	flag.minus = 0;
