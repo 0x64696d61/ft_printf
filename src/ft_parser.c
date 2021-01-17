@@ -40,7 +40,7 @@ struct s_flags *line_parser(char **str, struct s_flags *flag)
 				(*str)++;
 				if (**str == '%')
 				{
-					printf("%c", **str);
+					ft_putchar(**str);
 					break;
 				}
 				if ((**str == '-') && (ft_isdigit(**(str + 1))))
@@ -90,8 +90,7 @@ struct s_flags *line_parser(char **str, struct s_flags *flag)
 		}
 		else
 		{
-			//ft_putstr(&(**str));
-			printf("%c", **str);
+			ft_putchar(**str);
 			(*str)++;
 		}
 	}
