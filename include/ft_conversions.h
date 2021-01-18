@@ -3,6 +3,7 @@
 #define STRING 2
 #define POINTER 3
 #define INTEGER 4
+#define U_INTEGER 5
 
 
 

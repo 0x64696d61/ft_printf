@@ -6,12 +6,13 @@
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:13:32 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/17 21:34:39 by pstrait          ###   ########.fr       */
+/*   Updated: 2021/01/18 22:11:58 by pstrait          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define DEBUG 0
+# define DEBUG_FLAGS 0
 # define FT_PRINTF_H
 # include <unistd.h> //read || close || write
 # include <fcntl.h> // open || O_RDONLY
@@ -43,5 +44,5 @@ void run_processor(struct s_flags *flag, va_list *ap);
 int check_flags(struct s_flags *flag);
 void draw_string(struct s_flags *flag, va_list *ap);
 void draw_integer(struct s_flags *flag, va_list *ap);
-
+void draw_u_integer(struct s_flags *flag, va_list *ap);
 #endif

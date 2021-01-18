@@ -12,10 +12,11 @@ int decode_conversion(char *str)
 		return 2;
 	else if (*str == 'p')
 		return 3;
-	else if (*str == 'd')
+	else if (*str == 'u')
 		return 4;
-	else if (*str == 'i' || *str == 'u')
+	else if (*str == 'd')
 		return 5;
+
 	else
 	{
 		ft_putstr("write code...\n");
@@ -46,7 +47,7 @@ struct s_flags *line_parser(char **str, struct s_flags *flag)
 					ft_putchar(**str);
 					break;
 				}
-				if ((**str == '-') && (ft_isdigit(*((*str) + 1))))
+				if (**str == '-')
 				{
 					flag->minus = 1;
 					(*str)++;
@@ -73,6 +74,7 @@ struct s_flags *line_parser(char **str, struct s_flags *flag)
 				}
 				if (**str == '.')
 				{
+					flag->dot = 1;
 					(*str)++;
 					if (**str == '*')
 					{

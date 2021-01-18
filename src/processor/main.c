@@ -5,8 +5,7 @@ int main()
 
 	// STRING TESTING
 
-	// char *st1 = "hello";
-	//char *st1 = NULL;
+	char *st1 = "hello";
 	// printf("or_printf: %40s sdfsfsdf\n", st1);
 	// ft_printf("ft_printf: %40s sdfsfsdf\n", st1);
 	//
@@ -19,12 +18,9 @@ int main()
 	// printf("or_printf: %40.5s sdfsfsdf\n", st1);
 	// ft_printf("ft_printf: %40.5s sdfsfsdf\n", st1);
 
-	//printf("or_printf: %.7s sdfsfsdf\n", st1);
-	//ft_printf("ft_printf: %.7s sdfsfsdf\n", st1);
+	printf("or_printf: %.7s sdfsfsdf\n", st1);
+	ft_printf("ft_printf: %.7s sdfsfsdf\n", st1);
 
-	// printf("or_printf: %.s", st1);
-	// printf("\n");
-	// ft_printf("ft_printf: %.s", st1);
 
 	// INTEGER TESTING
 
@@ -39,12 +35,12 @@ int main()
 
 	// UINTEGER TESTING
 
-	unsigned int num = -999;
+	// unsigned int num = -999;
 	// printf("or_printf: %.5u sdfsfsdf\n", num);
 	// ft_printf("ft_printf: %.5u sdfsfsdf\n", num);
 	//
-
-	printf("or_printf: %9dTT sdfsfsdf\n", num);
-	ft_printf("ft_printf: %9dTT sdfsfsdf\n", num);
+	//
+	// printf("or_printf: %9.5dTT sdfsfsdf\n", num);
+	// ft_printf("ft_printf: %9.5dTT sdfsfsdf\n", num);
 
 }

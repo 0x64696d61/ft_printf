@@ -7,6 +7,7 @@ SRC_FILES =	ft_printf.c \
 			processor/ft_processor.c \
 			processor/string.c \
 			processor/integer.c \
+			processor/u_integer.c
 
 OBJS =		${addprefix ${SRC_DIR},${SRC_FILES:.c=.o}}
 

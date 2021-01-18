@@ -2,6 +2,7 @@
 
 struct s_flags *init_flags(void)
 {
+	// set space by default.
 	flag.zero = 32;
 	flag.width = 0;
 	flag.precision = 0;
@@ -13,7 +14,7 @@ struct s_flags *init_flags(void)
 
 int check_flags(struct s_flags *flag)
 {
-	if (flag->zero || flag->width || flag->precision || flag->precision || flag->minus || flag->dot || flag->conversion)
+	if (flag->zero != 32 || flag->width || flag->precision || flag->precision || flag->minus || flag->dot || flag->conversion)
 	{
 		return (1);
 	}
