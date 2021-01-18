@@ -6,17 +6,19 @@ static char	*string_builder(char *string, struct s_flags *flag)
 	char	*str;
 	char	*str1;
 
-	// if (flag->precision)
-	// 	if (((int)ft_strlen(string) > flag->precision))
-	// 		string[flag->precision] = '\0';
-	if ((flag->dot) && (!flag->precision))
-		string[0] = '\0';
+	if (flag->precision)
+		if (((int)ft_strlen(string) > flag->precision))
+			string[flag->precision] = '\0';
+			
+		// if ((flag->dot) && (!flag->precision))
+		// 	string[0] = '\0';
 	if (flag->width)
 		if ((offset = flag->width - (int)ft_strlen(string)) > 0)
 		{
 			str = malloc(sizeof(char*) * offset + 1);
+			if (str == NULL)
+				printf("error");
 			str[offset] = '\0';
-			print_flags(flag);
 			ft_memset(str, flag->zero, offset);
 			if (flag->minus)
 				str1 = ft_strjoin(string, str);
@@ -36,7 +38,7 @@ void draw_u_integer(struct s_flags *flag, va_list *ap)
 
 	num = va_arg(*ap, unsigned int);
 	string = ft_u_itoa(num);
-	string_builder(string, flag);
+	string = string_builder(string, flag);
 	ft_putstr(string);
 
 

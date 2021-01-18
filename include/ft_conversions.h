@@ -2,8 +2,8 @@
 #define CHAR 1
 #define STRING 2
 #define POINTER 3
-#define INTEGER 4
-#define U_INTEGER 5
+#define U_INTEGER 4
+#define INTEGER 5
 
 
 
