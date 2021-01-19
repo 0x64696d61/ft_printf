@@ -6,7 +6,7 @@
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:13:32 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/18 22:11:58 by pstrait          ###   ########.fr       */
+/*   Updated: 2021/01/19 21:32:29 by pstrait          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ struct	s_flags
 	/* 1 - c; 2 - s; 3 - p; 4 - d
 		5 - i; 6 - u; 7 - x; 8 - X */
 	int conversion;
+	int negative;
 } flag;
 
 int ft_printf(char *str, ...);

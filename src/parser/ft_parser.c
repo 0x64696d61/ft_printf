@@ -14,7 +14,7 @@ int decode_conversion(char *str)
 		return (POINTER);
 	else if (*str == 'u')
 		return (U_INTEGER);
-	else if (*str == 'd')
+	else if (*str == 'i' || *str == 'd')
 		return (INTEGER);
 
 	else
@@ -56,6 +56,11 @@ struct s_flags *line_parser(char **str, struct s_flags *flag)
 				{
 					flag->zero = 48;
 					(*str)++;
+					if (**str == '-')
+					{
+						flag->minus = 1;
+						(*str)++;
+					}
 				}
 				if (((**str == '*') || (ft_isdigit(**(str)))) && (*((*str) - 1) != '.'))
 				{

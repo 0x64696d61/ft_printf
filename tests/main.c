@@ -39,12 +39,12 @@ int main()
 
 	// UINTEGER TESTING
 
-	unsigned int num = 33;
+	int num = -33;
 	// printf("or_printf: %.5u sdfsfsdf\n", num);
 	// ft_printf("ft_printf: %.5u sdfsfsdf\n", num);
 	//
 
-	printf("or_printf: %.5uTT sdfsfsdf\n", num);
-	ft_printf("ft_printf: %.5uTT sdfsfsdf\n", num);
+	printf("or_printf: %08.5i sdfsfsdf\n", num);
+	ft_printf("ft_printf: %08.5i sdfsfsdf\n", num);
 
 }

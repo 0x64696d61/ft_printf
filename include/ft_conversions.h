@@ -3,7 +3,7 @@
 #define STRING 2
 #define POINTER 3
 #define U_INTEGER 4
-#define INTEGER 5
+#define INTEGER 5 // DECIMAL is INTEGER too)
 
 
 

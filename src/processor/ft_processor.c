@@ -1,8 +1,8 @@
 #include "../include/ft_printf.h"
 
-// left flags: cpdiuxX%
-// do flags: u
-// done flags: s
+// left flags: cpdixX%
+// do flags: id
+// done flags: su
 void run_processor(struct s_flags *flag, va_list *ap)
 {
 	if (DEBUG)
@@ -29,11 +29,11 @@ void run_processor(struct s_flags *flag, va_list *ap)
 		draw_u_integer(flag, ap);
 	}
 
-	// if (flag->conversion == INTEGER)
-	// {
-	// 	if (DEBUG)
-	// 		printf("This is INTEGER\n");
-	// 	draw_integer(flag, ap);
-	// }
+	if (flag->conversion == INTEGER)
+	{
+		if (DEBUG)
+			printf("This is INTEGER\n");
+		draw_integer(flag, ap);
+	}
 
 }

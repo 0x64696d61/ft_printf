@@ -9,6 +9,7 @@ struct s_flags *init_flags(void)
 	flag.minus = 0;
 	flag.dot = 0;
 	flag.conversion = 0;
+	flag.negative = 1;
 	return (&flag);
 }
 
@@ -30,5 +31,6 @@ void print_flags(struct s_flags *flag)
 	printf("minus: %d\n", flag->minus);
 	printf("dot: %d\n", flag->dot);
 	printf("conversion: %d\n", flag->conversion);
+	printf("negative: %d\n", flag->negative);
 	printf("******* end flags ******\n");
 }
