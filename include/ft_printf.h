@@ -6,7 +6,7 @@
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:13:32 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/19 21:32:29 by pstrait          ###   ########.fr       */
+/*   Updated: 2021/01/20 18:27:36 by pstrait          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ void run_processor(struct s_flags *flag, va_list *ap);
 int check_flags(struct s_flags *flag);
 void draw_string(struct s_flags *flag, va_list *ap);
 void draw_integer(struct s_flags *flag, va_list *ap);
+void draw_char(struct s_flags *flag, va_list *ap);
 void draw_u_integer(struct s_flags *flag, va_list *ap);
 #endif

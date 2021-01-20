@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string.c                                           :+:      :+:    :+:   */
+/*   char.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/18 21:54:48 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/20 18:28:41 by pstrait          ###   ########.fr       */
+/*   Created: 2021/01/20 18:26:46 by pstrait           #+#    #+#             */
+/*   Updated: 2021/01/20 18:55:38 by pstrait          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,28 @@ static char	*string_builder(char *string, struct s_flags *flag)
 	return (string);
 }
 
-void	draw_string(struct s_flags *flag, va_list *ap)
+void	draw_char(struct s_flags *flag, va_list *ap)
 {
 	char *string;
 
-	string = va_arg(*ap, char*);
-	if (!string)
-		string = "(null)";
+	string = malloc(sizeof(int) * 1 + 1);
+	string[0] = va_arg(*ap, int);
+	string[1] = '\0';
+
+	if (string[0] == '\0')
+		printf("f");
+
 	string = ft_strdup(string);
 	string = string_builder(string, flag);
-	ft_putstr(string);
-	free(string);
+
+
+
+	int len = ft_strlen(string);
+	while(len--)
+	{
+		ft_putchar('x');
+		ft_putchar(*string);
+		string++;
+	}
+	//free(&string[0]);
 }

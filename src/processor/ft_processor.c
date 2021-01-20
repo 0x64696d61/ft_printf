@@ -1,8 +1,8 @@
 #include "../include/ft_printf.h"
 
-// left flags: cpdixX%
-// do flags: id
-// done flags: su
+// left flags: pxX%
+// do flags: c
+// done flags: suid
 void run_processor(struct s_flags *flag, va_list *ap)
 {
 	if (DEBUG)
@@ -14,6 +14,13 @@ void run_processor(struct s_flags *flag, va_list *ap)
 		flag->width = va_arg(*ap, int);
 	if (flag->precision == -1)
 		flag->precision = va_arg(*ap, int);
+
+	if (flag->conversion == CHAR)
+	{
+		if (DEBUG)
+			printf("This is STRING\n");
+		draw_char(flag, ap);
+	}
 
 	if (flag->conversion == STRING)
 	{

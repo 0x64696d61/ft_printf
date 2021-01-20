@@ -39,12 +39,32 @@ int main()
 
 	// UINTEGER TESTING
 
-	int num = -33;
+	// int num = 33;
+	// printf("or_printf: %.5u sdfsfsdf\n", num);
+	// ft_printf("ft_printf: %.5u sdfsfsdf\n", num);
+	//
+	//
+	// printf("or_printf: %05i sdfsfsdf\n", num);
+	// ft_printf("ft_printf: %05i sdfsfsdf\n", num);
+
+	// printf("or_printf: %7i sdfsfsdf\n", num);
+	// ft_printf("ft_printf: %7i sdfsfsdf\n", num);
+
+
+
+	// CHAR TESTING
+
+	// UINTEGER TESTING
+
+	char x = '\x00';
 	// printf("or_printf: %.5u sdfsfsdf\n", num);
 	// ft_printf("ft_printf: %.5u sdfsfsdf\n", num);
 	//
 
-	printf("or_printf: %08.5i sdfsfsdf\n", num);
-	ft_printf("ft_printf: %08.5i sdfsfsdf\n", num);
+	printf("or_printf: %05c \n", x);
+	ft_printf("ft_printf: %05c \n", x);
+
+	// printf("or_printf: %7i sdfsfsdf\n", num);
+	// ft_printf("ft_printf: %7i sdfsfsdf\n", num);
 
 }
