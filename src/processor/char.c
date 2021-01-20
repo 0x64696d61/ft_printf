@@ -12,56 +12,50 @@
 
 #include "../include/ft_printf.h"
 
-static char	*string_builder(char *string, struct s_flags *flag)
+static void processing_nonprintable(char *string, struct s_flags *flag)
 {
-	int		offset;
 	char	*str;
-	char	*str1;
+	int		offset;
 
-	if (flag->precision)
-		if (((int)ft_strlen(string) > flag->precision))
-			string[flag->precision] = '\0';
-	if ((flag->dot) && (!flag->precision))
-		string[0] = '\0';
 	if (flag->width)
-		if ((offset = flag->width - (int)ft_strlen(string)) > 0)
+	{
+		if ((offset = flag->width - 1) > 0)
 		{
 			str = malloc(sizeof(char*) * offset + 1);
 			str[offset] = '\0';
 			ft_memset(str, flag->zero, offset);
 			if (flag->minus)
-				str1 = ft_strjoin(string, str);
+			{
+				ft_putchar(*string);
+				ft_putstr(str);
+			}
 			else
-				str1 = ft_strjoin(str, string);
+			{
+				ft_putstr(str);
+				ft_putchar(*string);
+			}
 			free(str);
-			free(string);
-			return (str1);
 		}
-	return (string);
+	}
+	else
+		ft_putchar(*string);
+
 }
 
 void	draw_char(struct s_flags *flag, va_list *ap)
 {
 	char *string;
 
-	string = malloc(sizeof(int) * 1 + 1);
-	string[0] = va_arg(*ap, int);
+	string = malloc(sizeof(char) * 1 + 1);
+	string[0] = (char)va_arg(*ap, int);
 	string[1] = '\0';
 
-	if (string[0] == '\0')
-		printf("f");
-
-	string = ft_strdup(string);
-	string = string_builder(string, flag);
-
-
-
-	int len = ft_strlen(string);
-	while(len--)
+	if (ft_strlen(string) == 0)
+		processing_nonprintable(string, flag);
+	else
 	{
-		ft_putchar('x');
-		ft_putchar(*string);
-		string++;
+		string = string_builder(string, flag);
+		ft_putstr(string);
 	}
-	//free(&string[0]);
+	free(string);
 }

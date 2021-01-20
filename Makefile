@@ -4,11 +4,12 @@ SRC_DIR =	src/
 SRC_FILES =	ft_printf.c \
 			parser/ft_parser.c \
 			parser/ft_flags_manager.c \
-			processor/ft_processor.c \
+			processor/processor.c \
 			processor/string.c \
 			processor/integer.c \
 			processor/u_integer.c \
-			processor/char.c
+			processor/char.c \
+			processor/pointer.c
 
 OBJS =		${addprefix ${SRC_DIR},${SRC_FILES:.c=.o}}
 

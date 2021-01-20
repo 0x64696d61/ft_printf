@@ -56,13 +56,14 @@ int main()
 
 	// UINTEGER TESTING
 
-	char x = '\x00';
+	char x = 't';
 	// printf("or_printf: %.5u sdfsfsdf\n", num);
 	// ft_printf("ft_printf: %.5u sdfsfsdf\n", num);
 	//
 
-	printf("or_printf: %05c \n", x);
-	ft_printf("ft_printf: %05c \n", x);
+	printf("or_printf: %p \n", &x);
+	ft_printf("ft_printf: %p \n", &x);
+
 
 	// printf("or_printf: %7i sdfsfsdf\n", num);
 	// ft_printf("ft_printf: %7i sdfsfsdf\n", num);

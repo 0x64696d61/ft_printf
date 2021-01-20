@@ -1,25 +1,5 @@
 #include "../include/ft_printf.h"
 
-static	char	*fill_line(char *string, int offset, struct s_flags flag)
-{
-	char	*str;
-	char	*str1;
-
-	str = malloc(sizeof(char*) * offset + 1);
-	if (str == NULL)
-		return (NULL);
-
-	str[offset] = '\0';
-	ft_memset(str, flag.zero, offset);
-	if (flag.minus)
-		str1 = ft_strjoin(string, str);
-	else
-		str1 = ft_strjoin(str, string);
-	free(str);
-	free(string);
-	return (str1);
-}
-
 static char *set_minus_first(char *string)
 {
 	char *pos;
@@ -30,7 +10,7 @@ static char *set_minus_first(char *string)
 	return string;
 }
 
-static	char	*string_builder(char *string, struct s_flags *flag)
+char	*int_string_builder(char *string, struct s_flags *flag)
 {
 	int		offset;
 	struct s_flags local_flag;
@@ -72,7 +52,7 @@ void	draw_integer(struct s_flags *flag, va_list *ap)
 		flag->negative = -1;
 
 	string = ft_itoa(num * flag->negative);
-	string = string_builder(string, flag);
+	string = int_string_builder(string, flag);
 	ft_putstr(string);
 	free(string);
 }
