@@ -6,7 +6,7 @@
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 16:19:26 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/20 15:44:34 by pstrait          ###   ########.fr       */
+/*   Updated: 2021/01/21 14:41:57 by pstrait          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,7 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putnbr(int n);
 char	*ft_u_itoa(unsigned int n);
+char	*ft_base_converter(unsigned long long num, int notation);
+char	*ft_strtoupper(char *string);
+char	*to_hex(unsigned long long num);
 #endif

@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string.c                                           :+:      :+:    :+:   */
+/*   hex.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/18 21:54:48 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/21 15:56:19 by pstrait          ###   ########.fr       */
+/*   Created: 2021/01/21 15:59:35 by pstrait           #+#    #+#             */
+/*   Updated: 2021/01/21 18:56:33 by pstrait          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-void	draw_string(struct s_flags *flag, va_list *ap)
+void	draw_hex(struct s_flags *flag, va_list *ap)
 {
+	unsigned long long num;
 	char *string;
 
+	num = va_arg(*ap, unsigned long long);
+	string = ft_base_converter(num, 16);
+	if (flag->conversion == HEX_UPPER)
+		string = ft_strtoupper(string);
+	if ((flag->precision) &&  ((flag->precision) <= (int) ft_strlen(string)))
+		flag->precision = (int) ft_strlen(string);
 
-	string = va_arg(*ap, char*);
-	if (!string)
-		string = "(null)";
-	string = ft_strdup(string);
-	if ((flag->dot) && (!flag->precision))
-		string[0] = '\0';
-	string = string_builder(string, flag);
+	string = int_string_builder(string, flag);
 	ft_putstr(string);
 	free(string);
 }

@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string.c                                           :+:      :+:    :+:   */
+/*   ft_to_hex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/18 21:54:48 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/21 15:56:19 by pstrait          ###   ########.fr       */
+/*   Created: 2021/01/21 14:41:17 by pstrait           #+#    #+#             */
+/*   Updated: 2021/01/21 14:42:02 by pstrait          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "libft.h"
 
-void	draw_string(struct s_flags *flag, va_list *ap)
+char	*to_hex(unsigned long long num)
 {
 	char *string;
+	char *p_string;
 
-
-	string = va_arg(*ap, char*);
-	if (!string)
-		string = "(null)";
-	string = ft_strdup(string);
-	if ((flag->dot) && (!flag->precision))
-		string[0] = '\0';
-	string = string_builder(string, flag);
-	ft_putstr(string);
-	free(string);
+	p_string = ft_base_converter(num, 16);
+	string = ft_strjoin("0x", p_string);
+	free(p_string);
+	return (string);
 }

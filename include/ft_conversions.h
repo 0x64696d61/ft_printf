@@ -4,6 +4,9 @@
 #define POINTER 3
 #define U_INTEGER 4
 #define INTEGER 5 // DECIMAL is INTEGER too)
+#define HEX 6
+#define HEX_UPPER 7
+#define PERCENT 10
 
 
 

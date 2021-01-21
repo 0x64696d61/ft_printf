@@ -6,7 +6,7 @@
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:13:32 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/20 18:27:36 by pstrait          ###   ########.fr       */
+/*   Updated: 2021/01/21 18:55:17 by pstrait          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@ char	*string_builder(char *string, struct s_flags *flag);
 char	*fill_line(char *string, int offset, struct s_flags flag);
 char	*int_string_builder(char *string, struct s_flags *flag);
 void	draw_pointer(struct s_flags *flag, va_list *ap);
+void	draw_percent(struct s_flags *flag);
+void	draw_hex(struct s_flags *flag, va_list *ap);
 
 #endif

@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string.c                                           :+:      :+:    :+:   */
+/*   percent.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/18 21:54:48 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/21 15:56:19 by pstrait          ###   ########.fr       */
+/*   Created: 2021/01/21 15:13:18 by pstrait           #+#    #+#             */
+/*   Updated: 2021/01/21 15:16:24 by pstrait          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-void	draw_string(struct s_flags *flag, va_list *ap)
+void	draw_percent(struct s_flags *flag)
 {
 	char *string;
 
-
-	string = va_arg(*ap, char*);
-	if (!string)
-		string = "(null)";
+	string = "%";
 	string = ft_strdup(string);
 	if ((flag->dot) && (!flag->precision))
 		string[0] = '\0';

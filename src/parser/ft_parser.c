@@ -16,7 +16,12 @@ int decode_conversion(char *str)
 		return (U_INTEGER);
 	else if (*str == 'i' || *str == 'd')
 		return (INTEGER);
-
+	else if (*str == 'x')
+		return (HEX);
+	else if (*str == 'X')
+		return (HEX_UPPER);
+	else if (*str == '%')
+		return (PERCENT);
 	else
 	{
 		ft_putstr("write code...\n");
