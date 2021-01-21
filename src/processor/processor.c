@@ -77,6 +77,7 @@ char	*fill_line(char *string, int offset, struct s_flags flag)
 
 	str[offset] = '\0';
 	ft_memset(str, flag.zero, offset);
+
 	if (flag.minus)
 		str1 = ft_strjoin(string, str);
 	else
@@ -94,7 +95,16 @@ char	*string_builder(char *string, struct s_flags *flag)
 		if (((int)ft_strlen(string) > flag->precision))
 			string[flag->precision] = '\0';
 	if (flag->width)
-		if ((offset = flag->width - (int)ft_strlen(string)) > 0)
+	{
+		if ((flag->width < 0) && ((flag->width + (int)ft_strlen(string)) < 0))
+		{
+			flag->minus = 1;
+			offset = (flag->width + (int)ft_strlen(string)) * -1;
 			string = fill_line(string, offset, *flag);
+		}
+		else
+			if ((offset = flag->width - (int)ft_strlen(string)) > 0)
+				string = fill_line(string, offset, *flag);
+	}
 	return (string);
 }

@@ -16,7 +16,6 @@ void	draw_string(struct s_flags *flag, va_list *ap)
 {
 	char *string;
 
-
 	string = va_arg(*ap, char*);
 	if (!string)
 		string = "(null)";

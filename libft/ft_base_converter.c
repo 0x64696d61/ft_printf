@@ -14,8 +14,7 @@
 
 char	*ft_base_converter(unsigned long long num, int notation)
 {
-	const char base[] = {
-		'0','1','2','3','4','5','6','7','8','9',
+	const char base[] = {'0','1','2','3','4','5','6','7','8','9',
 		'a','b','c','d','e','f' };
 	int mas[64];
 	int i = 0;
@@ -29,12 +28,16 @@ char	*ft_base_converter(unsigned long long num, int notation)
 		i++;
 	}
 	if (i == 0)
+	{
+		mas[i] = 0;
 		i++;
+	}
 	string = malloc(sizeof(char) * i + 1);
 	string[0] = '0';
 	string[i] = '\0';
 	p_sring = string;
 	while(i-- > 0)
 		*p_sring++ = base[mas[i]];
+
 	return (string);
 }

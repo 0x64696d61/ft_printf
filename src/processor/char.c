@@ -35,7 +35,29 @@ static void processing_nonprintable(char *string, struct s_flags *flag)
 				ft_putchar(*string);
 			}
 			free(str);
+
 		}
+		else if ((flag->width < 0) && ((flag->width - 1 < 0)))
+		{
+			flag->minus = 1;
+			offset = (flag->width + 1) * -1;
+			str = malloc(sizeof(char*) * offset + 1);
+			str[offset] = '\0';
+			ft_memset(str, flag->zero, offset);
+			if (flag->minus)
+			{
+				ft_putchar(*string);
+				ft_putstr(str);
+			}
+			else
+			{
+				ft_putstr(str);
+				ft_putchar(*string);
+			}
+			free(str);
+
+		}
+
 	}
 	else
 		ft_putchar(*string);

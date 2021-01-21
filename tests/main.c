@@ -61,9 +61,18 @@ int main()
 	// ft_printf("ft_printf: %.5u sdfsfsdf\n", num);
 	//
 
-	printf("or_printf: this %5p", NULL);
+	//printf("or_printf: %3x", 0);
+
+	ft_printf("{%.*d}", 0, 42);
 	printf("\n");
-	ft_printf("ft_printf: this %5p", NULL);
+	printf("{%.*d}", 0, 42);
+	//
+	// printf("\n");
+
+	// ft_printf("%*d", -32, 22);
+	// printf("\n");
+	// printf("%*d", -32, 22);
+	//ft_printf("ft_printf: %3x", 0);
 
 
 	// printf("or_printf: %7i sdfsfsdf\n", num);

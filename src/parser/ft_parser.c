@@ -24,7 +24,7 @@ int decode_conversion(char *str)
 		return (PERCENT);
 	else
 	{
-		ft_putstr("write code...\n");
+		//ft_putstr("write code...\n");
 		return -1;
 	}
 }
@@ -47,6 +47,11 @@ struct s_flags *line_parser(char **str, struct s_flags *flag)
 		if (**str == '%')
 		{
 				(*str)++;
+				if (**str == ' ')
+				{
+					ft_putchar(' ');
+					(*str)++;
+				}
 				if (**str == '%')
 				{
 					ft_putchar(**str);

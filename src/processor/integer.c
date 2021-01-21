@@ -31,11 +31,19 @@ char	*int_string_builder(char *string, struct s_flags *flag)
 		string[0] = '\0';
 	if (local_flag.width)
 	{
-		if (local_flag.precision)
+		if (local_flag.precision || local_flag.width < 0)
 			local_flag.zero = ' ';
-		if ((offset = local_flag.width - (int)ft_strlen(string)) > 0)
+		if ((flag->width < 0) && ((flag->width + (int)ft_strlen(string)) < 0))
+		{
+			local_flag.minus = 1;
+			offset = (local_flag.width + (int)ft_strlen(string)) * -1;
 			string = fill_line(string, offset, local_flag);
+		}
+		else
+			if ((offset = flag->width - (int)ft_strlen(string)) > 0)
+				string = fill_line(string, offset, local_flag);
 	}
+
 	if (local_flag.width && local_flag.negative == -1 && flag->zero == '0' && (!local_flag.precision))
 		string = set_minus_first(string);
 	return (string);
@@ -53,6 +61,8 @@ void	draw_integer(struct s_flags *flag, va_list *ap)
 
 	string = ft_itoa(num * flag->negative);
 	string = int_string_builder(string, flag);
+
+	//ft_putstr("====");
 	ft_putstr(string);
 	free(string);
 }
