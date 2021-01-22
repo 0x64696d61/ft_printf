@@ -71,6 +71,8 @@ char	*fill_line(char *string, int offset, struct s_flags flag)
 	char	*str;
 	char	*str1;
 
+	if (!string)
+		return (string);
 	str = malloc(sizeof(char*) * offset + 1);
 	if (str == NULL)
 		return (NULL);

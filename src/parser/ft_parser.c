@@ -47,7 +47,7 @@ struct s_flags *line_parser(char **str, struct s_flags *flag)
 		if (**str == '%')
 		{
 				(*str)++;
-				if (**str == ' ')
+				while(**str == ' ')
 				{
 					ft_putchar(' ');
 					(*str)++;
@@ -59,8 +59,9 @@ struct s_flags *line_parser(char **str, struct s_flags *flag)
 				}
 				if (**str == '-')
 				{
+					while(**str == '-')
+						(*str)++;
 					flag->minus = 1;
-					(*str)++;
 				}
 				else if (**str == '0')
 				{

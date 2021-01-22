@@ -65,9 +65,21 @@ int main()
 
 	//printf("or_printf: %3x", 0);
 
-	ft_printf("{%.*d}", 0, 42);
-	printf("\n");
-	printf("{%.*d}", 0, 42);
+	//printf("(null), , (null), (null), (null), (null), (null),");
+	//printf("%-2s, %.s, %-4s, %-2.4s, %-8.12s, %3s, %8s, %---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL);
+//	ft_printf("{%.*d}", 0, 42);
+//	printf("\n");
+
+	// printf("\norigin: %.p", NULL);
+	// ft_printf("\nmy:%.p", NULL);
+
+
+	printf("%.0x", 0);
+	ft_printf("%.0x", 0);
+
+
+
+
 	//
 	// printf("\n");
 

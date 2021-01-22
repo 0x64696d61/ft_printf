@@ -4,9 +4,14 @@ static char *set_minus_first(char *string)
 {
 	char *pos;
 
+	if (!string)
+		return (string);
 	pos = ft_strchr(string, '-');
-	*pos = '0';
-	string[0] = '-';
+	if (pos)
+	{
+		*pos = '0';
+		string[0] = '-';
+	}
 	return string;
 }
 
@@ -27,12 +32,16 @@ char	*int_string_builder(char *string, struct s_flags *flag)
 	}
 	if (local_flag.negative == -1)
 		string = ft_strjoin("-", string);
-	if ((flag->dot) && (!flag->precision))
-		string[0] = '\0';
+
+	if ((flag->dot) && (!flag->precision) && (ft_atoi(string) == 0))
+			string[0] = '\0';
+
 	if (local_flag.width)
 	{
-		if (local_flag.precision || local_flag.width < 0)
+		if ((local_flag.precision || local_flag.width < 0))
 			local_flag.zero = ' ';
+		if (local_flag.precision < 0)
+			local_flag.zero = '0';
 		if ((flag->width < 0) && ((flag->width + (int)ft_strlen(string)) < 0))
 		{
 			local_flag.minus = 1;
@@ -62,7 +71,6 @@ void	draw_integer(struct s_flags *flag, va_list *ap)
 	string = ft_itoa(num * flag->negative);
 	string = int_string_builder(string, flag);
 
-	//ft_putstr("====");
 	ft_putstr(string);
 	free(string);
 }

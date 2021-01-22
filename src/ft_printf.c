@@ -23,5 +23,5 @@ int ft_printf(char *line, ...)
 	}
 
 	va_end(ap);
-	return 0;
+	return (3);
 }

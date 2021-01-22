@@ -6,7 +6,7 @@
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 15:59:35 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/21 18:56:33 by pstrait          ###   ########.fr       */
+/*   Updated: 2021/01/22 21:42:29 by pstrait          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	draw_hex(struct s_flags *flag, va_list *ap)
 		string = ft_strtoupper(string);
 	if ((flag->precision) &&  ((flag->precision) <= (int) ft_strlen(string)))
 		flag->precision = (int) ft_strlen(string);
-
+	
 	string = int_string_builder(string, flag);
 	ft_putstr(string);
 	free(string);

@@ -5,3 +5,4 @@
 /libftprintf.a
 /src/**/*.o
 .DS_Store
+/42TESTERS-PRINTF
