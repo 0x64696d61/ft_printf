@@ -6,7 +6,7 @@
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:13:32 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/23 21:10:29 by pstrait          ###   ########.fr       */
+/*   Updated: 2021/01/23 23:25:41 by pstrait          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ struct	s_flags
 	int dot;
 	int precision;
 	int width;
-	/* 1 - c; 2 - s; 3 - p; 4 - d
-		5 - i; 6 - u; 7 - x; 8 - X */
 	int conversion;
 	int negative;
 } flag;
@@ -53,5 +51,7 @@ char	*int_string_builder(char *string, struct s_flags *flag);
 int		draw_pointer(struct s_flags *flag, va_list *ap);
 int		draw_percent(struct s_flags *flag);
 int		draw_hex(struct s_flags *flag, va_list *ap);
+int		valid_input(char **str);
+int		decode_conversion(char *str);
 
 #endif

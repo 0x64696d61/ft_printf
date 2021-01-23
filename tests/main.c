@@ -96,7 +96,7 @@ int main()
 	char	*u = "-0";
 
 	int size1 = printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X", i, j, k, l, m, n, c, c, j, j, j);
-	printf("\n");
+	printf("\n\n");
 	int size2 = ft_printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X", i, j, k, l, m, n, c, c, j, j, j);
 	printf("\n");
 

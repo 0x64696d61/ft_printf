@@ -2,8 +2,8 @@ NAME =		libftprintf.a
 
 SRC_DIR =	src/
 SRC_FILES =	ft_printf.c \
-			parser/ft_parser.c \
-			parser/ft_flags_manager.c \
+			parser/parser.c \
+			parser/flags_manager.c \
 			processor/processor.c \
 			processor/string.c \
 			processor/integer.c \
