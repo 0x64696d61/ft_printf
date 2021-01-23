@@ -37,7 +37,10 @@ char	*ft_base_converter(unsigned long long num, int notation)
 	string[i] = '\0';
 	p_sring = string;
 	while(i-- > 0)
-		*p_sring++ = base[mas[i]];
+	{
+		*p_sring = base[mas[i]];
+		p_sring++;
+	}
 
 	return (string);
 }

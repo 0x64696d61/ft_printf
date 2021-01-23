@@ -33,8 +33,8 @@ char	*int_string_builder(char *string, struct s_flags *flag)
 	if (local_flag.negative == -1)
 		string = ft_strjoin("-", string);
 
-	if ((flag->dot) && (!flag->precision) && (ft_atoi(string) == 0))
-			string[0] = '\0';
+		if ((flag->dot) && (flag->precision == 0) && ((string[0] == '0') &&  (string[1] == '\0')))
+				string[0] = '\0';
 
 	if (local_flag.width)
 	{

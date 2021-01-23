@@ -74,10 +74,15 @@ int main()
 	// ft_printf("\nmy:%.p", NULL);
 
 
-	printf("%.0x", 0);
-	ft_printf("%.0x", 0);
+	ft_printf("%0082.u%-7.57u" ,4183054859u,4100129571u);
+	printf("\n");
+	printf("%000082.u%-7.57u" ,4183054859u,4100129571u);
+	printf("\n");
 
 
+
+	int num = 99;
+	printf("or_printf: %015.d10 sdfsfsdf\n", num);
 
 
 	//

@@ -19,7 +19,7 @@ void	draw_percent(struct s_flags *flag)
 	string = "%";
 	string = ft_strdup(string);
 	if ((flag->dot) && (!flag->precision))
-		string[0] = '\0';
+		string[0] = '%';
 	string = string_builder(string, flag);
 	ft_putstr(string);
 	free(string);
