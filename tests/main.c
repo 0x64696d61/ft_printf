@@ -95,9 +95,9 @@ int main()
 	char	*t = "0x12345678";
 	char	*u = "-0";
 
-	int size1 = printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X", i, j, k, l, m, n, c, c, j, j, j);
+	int size1 = printf("0fsd%.10.10d", 99);
 	printf("\n\n");
-	int size2 = ft_printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X", i, j, k, l, m, n, c, c, j, j, j);
+	int size2 = ft_printf("0fsd%.10.10d", 99);
 	printf("\n");
 
 	printf("%d\n", size1);

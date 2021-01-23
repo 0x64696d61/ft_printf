@@ -6,7 +6,7 @@
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 21:46:27 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/23 23:25:19 by pstrait          ###   ########.fr       */
+/*   Updated: 2021/01/23 23:47:58 by pstrait          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,11 @@ static	void	check_minus_and_zero(char **str, struct s_flags *flag)
 
 struct	s_flags	*line_parser(char **str, struct s_flags *flag, int *p_counter)
 {
+	int fl = 0;
 	while (**str)
-		if (**str == '%')
+		if ((**str == '%') || (fl == 1))
 		{
+			fl = 1;
 			if (**str == '%' && *((*str) + 1) == '%')
 			{
 				puts_and_count(str, p_counter);
@@ -97,7 +99,8 @@ struct	s_flags	*line_parser(char **str, struct s_flags *flag, int *p_counter)
 			check_star(str, flag);
 			check_dot(str, flag);
 			flag->conversion = decode_conversion(*str);
-			break ;
+			if (flag->conversion != -1)
+				break ;
 		}
 		else
 			puts_and_count(str, p_counter);
