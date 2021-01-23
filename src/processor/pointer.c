@@ -4,6 +4,7 @@ int	draw_pointer(struct s_flags *flag, va_list *ap)
 {
 	unsigned long long num;
 	char *string;
+	int size;
 
 	num = va_arg(*ap, unsigned long long);
 	if (!num)
@@ -14,6 +15,7 @@ int	draw_pointer(struct s_flags *flag, va_list *ap)
 	}
 	string = string_builder(to_hex(num), flag);
 	ft_putstr(string);
+	size = ft_strlen(string);
 	free(string);
-	return (ft_strlen(string));
+	return (size);
 }

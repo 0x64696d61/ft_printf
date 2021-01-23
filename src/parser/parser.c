@@ -64,8 +64,9 @@ static	void	check_minus_and_zero(char **str, struct s_flags *flag)
 		while (**str == '-')
 			(*str)++;
 		flag->minus = 1;
+		flag->zero = ' ';
 	}
-	else if (**str == '0')
+	else if ((**str == '0') && (flag->minus == 0))
 	{
 		flag->zero = '0';
 		while (**str == '0')
@@ -73,6 +74,7 @@ static	void	check_minus_and_zero(char **str, struct s_flags *flag)
 		if (**str == '-')
 		{
 			flag->minus = 1;
+			flag->zero = ' ';
 			(*str)++;
 		}
 	}

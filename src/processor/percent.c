@@ -15,6 +15,7 @@
 int	draw_percent(struct s_flags *flag)
 {
 	char *string;
+	int size;
 
 	string = "%";
 	string = ft_strdup(string);
@@ -22,6 +23,8 @@ int	draw_percent(struct s_flags *flag)
 		string[0] = '%';
 	string = string_builder(string, flag);
 	ft_putstr(string);
+	size =ft_strlen(string);
 	free(string);
-	return (ft_strlen(string));
+
+	return (size);
 }

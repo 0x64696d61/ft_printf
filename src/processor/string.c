@@ -15,6 +15,7 @@
 int	draw_string(struct s_flags *flag, va_list *ap)
 {
 	char *string;
+	int size;
 
 	string = va_arg(*ap, char*);
 	if (!string)
@@ -24,6 +25,7 @@ int	draw_string(struct s_flags *flag, va_list *ap)
 		string[0] = '\0';
 	string = string_builder(string, flag);
 	ft_putstr(string);
+	size = ft_strlen(string);
 	free(string);
-	return (ft_strlen(string));
+	return (size);
 }

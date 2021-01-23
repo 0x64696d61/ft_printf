@@ -14,10 +14,11 @@
 
 int	draw_hex(struct s_flags *flag, va_list *ap)
 {
-	unsigned long long num;
+	unsigned int num;
 	char *string;
+	int size;
 
-	num = va_arg(*ap, unsigned long long);
+	num = (unsigned int) va_arg(*ap, unsigned long long);
 	string = ft_base_converter(num, 16);
 
 	if (flag->conversion == HEX_UPPER)
@@ -27,6 +28,8 @@ int	draw_hex(struct s_flags *flag, va_list *ap)
 		flag->precision = (int) ft_strlen(string);
 	string = int_string_builder(string, flag);
 	ft_putstr(string);
+	size = ft_strlen(string);
 	free(string);
-	return (ft_strlen(string));
+
+	return (size);
 }
