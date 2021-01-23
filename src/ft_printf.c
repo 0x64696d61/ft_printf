@@ -15,7 +15,7 @@ int ft_printf(char *line, ...)
 	{
 		flag = init_flags();
 		flag = line_parser(str, flag, &counter);
-
+	//	printf("%d\n", counter);
 		if (check_flags(flag) == 1)
 		{
 			counter += run_processor(flag, &ap);
@@ -23,8 +23,9 @@ int ft_printf(char *line, ...)
 		if (**str != '\0')
 			(*str)++;
 	}
-	//printf("\ntotal byte: %d\n", counter);
 
 	va_end(ap);
+	//printf("%d\n", counter);
+	//counter = 100;
 	return (counter);
 }

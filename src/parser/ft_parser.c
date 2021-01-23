@@ -51,15 +51,27 @@ struct s_flags *line_parser(char **str, struct s_flags *flag, int *p_counter)
 		if (**str == '%')
 		{
 				(*str)++;
+				if (**str == '%')
+				{
+					puts_and_count(**str, p_counter);
+					break;
+				}
+				while ((**str != ' ') && (**str != '%') && (**str != '+') && (**str != '-') && (**str != '0') && (**str != '*') && (**str != '.') \
+						&& (**str != 'c') && (**str != 'd') && (**str != 'i') && (**str != 's') && (**str != 'x') && (**str != 'X') && (**str != 'p') \
+							&& (**str != 'u') && (ft_isdigit(**(str)) != 1) )
+				{
+					//printf("byte: %c\n", **str);
+					(*str)++;
+				}
 				while(**str == ' ')
 				{
 					puts_and_count(' ', p_counter);
 					(*str)++;
 				}
-				if (**str == '%')
+				if (**str == '+')
 				{
 					puts_and_count(**str, p_counter);
-					break;
+					(*str)++;
 				}
 				if (**str == '-')
 				{
@@ -113,7 +125,8 @@ struct s_flags *line_parser(char **str, struct s_flags *flag, int *p_counter)
 				flag->conversion = decode_conversion(*str);
 				if (DEBUG)
 					print_flags(flag);
-				break;
+				//if (flag->conversion != -1)
+					break;
 		}
 		else
 		{
