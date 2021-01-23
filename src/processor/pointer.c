@@ -1,6 +1,6 @@
 #include "../include/ft_printf.h"
 
-void	draw_pointer(struct s_flags *flag, va_list *ap)
+int	draw_pointer(struct s_flags *flag, va_list *ap)
 {
 	unsigned long long num;
 	char *string;
@@ -15,4 +15,5 @@ void	draw_pointer(struct s_flags *flag, va_list *ap)
 	string = string_builder(to_hex(num), flag);
 	ft_putstr(string);
 	free(string);
+	return (ft_strlen(string));
 }

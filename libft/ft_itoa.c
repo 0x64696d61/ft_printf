@@ -6,7 +6,7 @@
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 22:23:59 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/18 17:47:51 by pstrait          ###   ########.fr       */
+/*   Updated: 2021/01/23 17:24:11 by pstrait          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ long	size(long num)
 	return (i);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(long n)
 {
 	long	num;
 	long	i;

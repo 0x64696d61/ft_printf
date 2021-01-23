@@ -16,7 +16,7 @@ SRC_FILES =	ft_printf.c \
 OBJS =		${addprefix ${SRC_DIR},${SRC_FILES:.c=.o}}
 
 CFLAGS = -Wall -Wextra -Werror
-#  -fsanitize=address -fsanitize=undefined -g
+# -fsanitize=address -fsanitize=undefined -g
 
 LIBFT =		libft.a
 LIBDIR =	libft

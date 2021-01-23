@@ -6,17 +6,19 @@
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 18:26:46 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/20 18:55:38 by pstrait          ###   ########.fr       */
+/*   Updated: 2021/01/23 18:20:08 by pstrait          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-static void processing_nonprintable(char *string, struct s_flags *flag)
+static int processing_nonprintable(char *string, struct s_flags *flag)
 {
 	char	*str;
 	int		offset;
+	int		size;
 
+	size = 0;
 	if (flag->width)
 	{
 		if ((offset = flag->width - 1) > 0)
@@ -34,6 +36,7 @@ static void processing_nonprintable(char *string, struct s_flags *flag)
 				ft_putstr(str);
 				ft_putchar(*string);
 			}
+			size = ft_strlen(str) + 1;
 			free(str);
 
 		}
@@ -54,30 +57,38 @@ static void processing_nonprintable(char *string, struct s_flags *flag)
 				ft_putstr(str);
 				ft_putchar(*string);
 			}
+			size = ft_strlen(str) + 1;
 			free(str);
 
 		}
-
 	}
 	else
+	{
 		ft_putchar(*string);
+		size = 1;
+	}
+	return (size);
 
 }
 
-void	draw_char(struct s_flags *flag, va_list *ap)
+int	draw_char(struct s_flags *flag, va_list *ap)
 {
 	char *string;
+	int size;
 
 	string = malloc(sizeof(char) * 1 + 1);
 	string[0] = (char)va_arg(*ap, int);
 	string[1] = '\0';
+	size = 0;
 
 	if (ft_strlen(string) == 0)
-		processing_nonprintable(string, flag);
+		size = processing_nonprintable(string, flag);
 	else
 	{
 		string = string_builder(string, flag);
+		size = ft_strlen(string);
 		ft_putstr(string);
 	}
 	free(string);
+	return (size);
 }

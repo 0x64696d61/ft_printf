@@ -6,7 +6,7 @@
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:13:32 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/22 21:09:31 by pstrait          ###   ########.fr       */
+/*   Updated: 2021/01/23 18:24:39 by pstrait          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,22 @@ struct	s_flags
 	int negative;
 } flag;
 
-int ft_printf(char *str, ...);
-void print_flags(struct s_flags *flag);
+int		ft_printf(char *str, ...);
+void 	print_flags(struct s_flags *flag);
 struct s_flags *init_flags();
-struct s_flags *line_parser(char **str, struct s_flags *flag);
-int decode_operation(char *str);
-void run_processor(struct s_flags *flag, va_list *ap);
-int check_flags(struct s_flags *flag);
-void draw_string(struct s_flags *flag, va_list *ap);
-void draw_integer(struct s_flags *flag, va_list *ap);
-void draw_char(struct s_flags *flag, va_list *ap);
-void draw_u_integer(struct s_flags *flag, va_list *ap);
+struct s_flags *line_parser(char **str, struct s_flags *flag, int *counter);
+int 	decode_operation(char *str);
+int 	run_processor(struct s_flags *flag, va_list *ap);
+int		check_flags(struct s_flags *flag);
+int		draw_string(struct s_flags *flag, va_list *ap);
+int	 	draw_integer(struct s_flags *flag, va_list *ap);
+int		draw_char(struct s_flags *flag, va_list *ap);
+int		draw_u_integer(struct s_flags *flag, va_list *ap);
 char	*string_builder(char *string, struct s_flags *flag);
 char	*fill_line(char *string, int offset, struct s_flags flag);
 char	*int_string_builder(char *string, struct s_flags *flag);
-void	draw_pointer(struct s_flags *flag, va_list *ap);
-void	draw_percent(struct s_flags *flag);
-void	draw_hex(struct s_flags *flag, va_list *ap);
+int		draw_pointer(struct s_flags *flag, va_list *ap);
+int		draw_percent(struct s_flags *flag);
+int		draw_hex(struct s_flags *flag, va_list *ap);
 
 #endif

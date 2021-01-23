@@ -6,3 +6,4 @@
 /src/**/*.o
 .DS_Store
 /42TESTERS-PRINTF
+/42_printf_unit_tests

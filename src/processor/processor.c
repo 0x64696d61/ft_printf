@@ -3,67 +3,70 @@
 // left flags: X%
 // do flags: x
 // done flags: suidcp
-void run_processor(struct s_flags *flag, va_list *ap)
+int run_processor(struct s_flags *flag, va_list *ap)
 {
+	int size = 0;
 	if (DEBUG)
 		printf("\nDEBUG MODE: Input data to run_processor\n");
-	if (DEBUG_FLAGS)
-		print_flags(flag);
 
 	if (flag->width == -1)
 		flag->width = va_arg(*ap, int);
 	if (flag->precision == -1)
 		flag->precision = va_arg(*ap, int);
 
+	if (DEBUG_FLAGS)
+		print_flags(flag);
+
 	if (flag->conversion == CHAR)
 	{
 		if (DEBUG)
 			printf("This is CHAR\n");
-		draw_char(flag, ap);
+		size = draw_char(flag, ap);
 	}
 
 	else if (flag->conversion == STRING)
 	{
 		if (DEBUG)
 			printf("This is STRING\n");
-		draw_string(flag, ap);
+		size = draw_string(flag, ap);
 	}
 
 	else if (flag->conversion == U_INTEGER)
 	{
 		if (DEBUG)
 			printf("This is U_INTEGER\n");
-		draw_u_integer(flag, ap);
+		size = draw_u_integer(flag, ap);
 	}
 
 	else if (flag->conversion == INTEGER)
 	{
 		if (DEBUG)
 			printf("This is INTEGER\n");
-		draw_integer(flag, ap);
+		size = draw_integer(flag, ap);
 	}
 
 	else if (flag->conversion == POINTER)
 	{
 		if (DEBUG)
 			printf("This is POINTER\n");
-		draw_pointer(flag, ap);
+		size = draw_pointer(flag, ap);
 	}
 	else if (flag->conversion == HEX || flag->conversion == HEX_UPPER)
 	{
 		if (DEBUG)
 			printf("This is HEX\n");
-		draw_hex(flag, ap);
+		size = draw_hex(flag, ap);
 	}
 	else if (flag->conversion == PERCENT)
 	{
 		if (DEBUG)
 			printf("This is PERCENT\n");
-		draw_percent(flag);
+		size = draw_percent(flag);
 	}
 	else
 		printf("Error\n");
 
+	return (size);
 }
 
 char	*fill_line(char *string, int offset, struct s_flags flag)

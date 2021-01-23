@@ -36,12 +36,16 @@ int decode_conversion(char *str)
 	width
 */
 
+static void puts_and_count(char symb, int *p_counter)
+{
+	ft_putchar(symb);
+	(*p_counter)++;
+}
 
-struct s_flags *line_parser(char **str, struct s_flags *flag)
+struct s_flags *line_parser(char **str, struct s_flags *flag, int *p_counter)
 {
 	if (DEBUG)
 		printf("\nDEBUG MODE: Input data to line_parser: %s\n", *str);
-
 	while(**str)
 	{
 		if (**str == '%')
@@ -49,12 +53,12 @@ struct s_flags *line_parser(char **str, struct s_flags *flag)
 				(*str)++;
 				while(**str == ' ')
 				{
-					ft_putchar(' ');
+					puts_and_count(' ', p_counter);
 					(*str)++;
 				}
 				if (**str == '%')
 				{
-					ft_putchar(**str);
+					puts_and_count(**str, p_counter);
 					break;
 				}
 				if (**str == '-')
@@ -66,7 +70,9 @@ struct s_flags *line_parser(char **str, struct s_flags *flag)
 				else if (**str == '0')
 				{
 					flag->zero = 48;
-					(*str)++;
+					while(**str == '0')
+						(*str)++;
+
 					if (**str == '-')
 					{
 						flag->minus = 1;
@@ -111,7 +117,7 @@ struct s_flags *line_parser(char **str, struct s_flags *flag)
 		}
 		else
 		{
-			ft_putchar(**str);
+			puts_and_count(**str, p_counter);
 			(*str)++;
 		}
 	}

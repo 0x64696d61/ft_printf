@@ -38,10 +38,12 @@ char	*int_string_builder(char *string, struct s_flags *flag)
 
 	if (local_flag.width)
 	{
-		if ((local_flag.precision || local_flag.width < 0))
+		if ((local_flag.precision > 0 || local_flag.width < 0))
 			local_flag.zero = ' ';
-		if (local_flag.precision < 0)
+		else if (local_flag.precision < 0 && local_flag.zero == '0')
 			local_flag.zero = '0';
+		else if (local_flag.precision == 0 && local_flag.width > 0 && local_flag.dot)
+			local_flag.zero = ' ';
 		if ((flag->width < 0) && ((flag->width + (int)ft_strlen(string)) < 0))
 		{
 			local_flag.minus = 1;
@@ -58,12 +60,12 @@ char	*int_string_builder(char *string, struct s_flags *flag)
 	return (string);
 }
 
-void	draw_integer(struct s_flags *flag, va_list *ap)
+int	draw_integer(struct s_flags *flag, va_list *ap)
 {
-	int num;
+	long num;
 	char *string;
 
-	num = va_arg(*ap, int);
+	num = (long) va_arg(*ap, int);
 	if (((num < 0) && (flag->zero == '0')) || ((num < 0) && (flag->precision)) || \
 						 ((num < 0) && (flag->width)))
 		flag->negative = -1;
@@ -73,4 +75,5 @@ void	draw_integer(struct s_flags *flag, va_list *ap)
 
 	ft_putstr(string);
 	free(string);
+	return (ft_strlen(string));
 }

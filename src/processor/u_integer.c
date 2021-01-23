@@ -1,6 +1,6 @@
 #include "../include/ft_printf.h"
 
-void	draw_u_integer(struct s_flags *flag, va_list *ap)
+int	draw_u_integer(struct s_flags *flag, va_list *ap)
 {
 	unsigned int num;
 	char *string;
@@ -10,4 +10,5 @@ void	draw_u_integer(struct s_flags *flag, va_list *ap)
 	string = int_string_builder(string, flag);
 	ft_putstr(string);
 	free(string);
+	return (ft_strlen(string));
 }

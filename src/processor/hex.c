@@ -6,13 +6,13 @@
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 15:59:35 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/22 21:42:29 by pstrait          ###   ########.fr       */
+/*   Updated: 2021/01/23 18:21:12 by pstrait          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-void	draw_hex(struct s_flags *flag, va_list *ap)
+int	draw_hex(struct s_flags *flag, va_list *ap)
 {
 	unsigned long long num;
 	char *string;
@@ -28,4 +28,5 @@ void	draw_hex(struct s_flags *flag, va_list *ap)
 	string = int_string_builder(string, flag);
 	ft_putstr(string);
 	free(string);
+	return (ft_strlen(string));
 }

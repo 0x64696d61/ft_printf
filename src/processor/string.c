@@ -6,13 +6,13 @@
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 21:54:48 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/22 20:02:13 by pstrait          ###   ########.fr       */
+/*   Updated: 2021/01/23 18:25:05 by pstrait          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-void	draw_string(struct s_flags *flag, va_list *ap)
+int	draw_string(struct s_flags *flag, va_list *ap)
 {
 	char *string;
 
@@ -25,4 +25,5 @@ void	draw_string(struct s_flags *flag, va_list *ap)
 	string = string_builder(string, flag);
 	ft_putstr(string);
 	free(string);
+	return (ft_strlen(string));
 }
