@@ -24,8 +24,6 @@ int	draw_hex(struct s_flags *flag, va_list *ap)
 	if (flag->conversion == HEX_UPPER)
 		string = ft_strtoupper(string);
 
-	if ((flag->precision) &&  ((flag->precision) <= (int) ft_strlen(string)))
-		flag->precision = (int) ft_strlen(string);
 	string = int_string_builder(string, flag);
 	ft_putstr(string);
 	size = ft_strlen(string);
