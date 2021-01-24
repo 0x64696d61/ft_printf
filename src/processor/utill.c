@@ -15,6 +15,7 @@
 int	error(char *str, char *string)
 {
 	ft_putstr(str);
-	free(string);
-	return (-1);
+	if (string)
+		free(string);
+	exit(0);
 }

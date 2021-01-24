@@ -19,7 +19,7 @@ static	int	print_char_string(int offset, char *string, struct s_flags *flag)
 
 	str = malloc(sizeof(char) * offset + 1);
 	if (!str)
-		return (error("cant allocate memory", string));
+		error("cant allocate memory", string);
 	str[offset] = '\0';
 	ft_memset(str, flag->zero, offset);
 	if (flag->minus)
@@ -66,14 +66,12 @@ int			draw_char(struct s_flags *flag, va_list *ap)
 
 	string = malloc(sizeof(char) * 1 + 1);
 	if (!string)
-		return (-1);
+		error("cant allocate memory", NULL);
 	string[0] = (char)va_arg(*ap, int);
 	string[1] = '\0';
 	size = 0;
 	if (ft_strlen(string) == 0)
-	{
 		size = processing_nonprintable(string, flag);
-	}
 	else
 	{
 		string = string_builder(string, flag);

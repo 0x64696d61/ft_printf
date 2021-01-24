@@ -6,13 +6,13 @@
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 20:59:48 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/24 22:20:24 by pstrait          ###   ########.fr       */
+/*   Updated: 2021/01/25 00:25:05 by drakosa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-int	run_processor(struct s_flags *flag, va_list *ap)
+int		run_processor(struct s_flags *flag, va_list *ap)
 {
 	int size;
 
@@ -47,10 +47,9 @@ char	*fill_line(char *string, int offset, struct s_flags flag)
 
 	if (!string)
 		return (string);
-	//// FIX ME
 	str = malloc(sizeof(char*) * offset + 1);
 	if (str == NULL)
-		return (NULL);
+		error("cant allocate memory", string);
 	str[offset] = '\0';
 	ft_memset(str, flag.zero, offset);
 	if (flag.minus)

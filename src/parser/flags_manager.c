@@ -49,6 +49,7 @@ void			print_flags(struct s_flags *flag)
 
 int				valid_input(char **str)
 {
+	(*str)++;
 	if ((**str != ' ') && (**str != '%') && (**str != '+') && \
 		(**str != '-') && (**str != '0') && (**str != '*') && \
 		(**str != '.') && (**str != 'c') && (**str != 'd') && \

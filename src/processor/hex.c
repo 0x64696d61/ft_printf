@@ -18,7 +18,7 @@ int	draw_hex(struct s_flags *flag, va_list *ap)
 	int				size;
 	unsigned int	num;
 
-	num = (unsigned int)va_arg(*ap, unsigned long long);
+	num = (unsigned long long)va_arg(*ap, unsigned long long);
 	string = ft_base_converter(num, 16);
 	if (flag->conversion == HEX_UPPER)
 		string = ft_strtoupper(string);

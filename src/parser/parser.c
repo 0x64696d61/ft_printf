@@ -6,7 +6,7 @@
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 21:46:27 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/24 21:10:29 by pstrait          ###   ########.fr       */
+/*   Updated: 2021/01/25 00:32:41 by drakosa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ static	void	puts_and_count(char **str, int *p_counter)
 {
 	ft_putchar(**str);
 	(*p_counter)++;
-	(*str)++;
+	if (**str)
+		(*str)++;
 }
 
 static	void	check_dot(char **str, struct s_flags *flag)
@@ -94,7 +95,6 @@ struct	s_flags	*line_parser(char **str, struct s_flags *flag, int *p_counter)
 				puts_and_count(str, p_counter);
 				break ;
 			}
-			(*str)++;
 			while (valid_input(str))
 				(*str)++;
 			while (**str == ' ' || **str == '+')
@@ -102,8 +102,7 @@ struct	s_flags	*line_parser(char **str, struct s_flags *flag, int *p_counter)
 			check_minus_and_zero(str, flag);
 			check_star(str, flag);
 			check_dot(str, flag);
-			flag->conversion = decode_conversion(*str);
-			if (flag->conversion != -1)
+			if ((flag->conversion = decode_conversion(*str)) != -1)
 				break ;
 		}
 		else
