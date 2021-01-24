@@ -6,7 +6,7 @@
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 20:59:48 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/25 00:25:05 by drakosa          ###   ########.fr       */
+/*   Updated: 2021/01/25 01:57:35 by drakosa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	*string_builder(char *string, struct s_flags *flag)
 	int	offset;
 
 	if (flag->precision)
-		if (((int)ft_strlen(string) > flag->precision))
+		if (((int)ft_strlen(string) > flag->precision && flag->precision > 0))
 			string[flag->precision] = '\0';
 	if (flag->width)
 	{

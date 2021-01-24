@@ -6,7 +6,7 @@
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 15:13:18 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/24 20:58:41 by pstrait          ###   ########.fr       */
+/*   Updated: 2021/01/25 02:06:50 by drakosa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	draw_percent(struct s_flags *flag)
 	{
 		flag->zero = ' ';
 	}
+
 	string = string_builder(string, flag);
 	ft_putstr(string);
 	size = ft_strlen(string);

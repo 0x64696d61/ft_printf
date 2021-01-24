@@ -32,7 +32,7 @@ ${NAME}:	${OBJS}
 	cp ${LIBDIR}/${LIBFT} ${NAME}
 	ar -vrc ${NAME} ${OBJS}
 	#ar -rcS ${NAME} ${OBJS} ${LIBDIR}/${LIBFT}
-	tests/run.sh
+	#tests/run.sh
 
 all :		${NAME}
 
