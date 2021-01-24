@@ -6,7 +6,7 @@
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 20:42:19 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/24 17:47:33 by pstrait          ###   ########.fr       */
+/*   Updated: 2021/01/24 22:44:05 by pstrait          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_putstr_fd(const char *s, int fd)
 {
 	if (!s)
 		return ;
-
 	while (*s)
 	{
 		ft_putchar_fd(*s, fd);
