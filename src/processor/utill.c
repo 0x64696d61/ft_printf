@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtoupper.c                                    :+:      :+:    :+:   */
+/*   utill.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/21 14:32:22 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/24 19:43:41 by pstrait          ###   ########.fr       */
+/*   Created: 2021/01/24 18:16:38 by pstrait           #+#    #+#             */
+/*   Updated: 2021/01/24 20:59:14 by pstrait          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/ft_printf.h"
 
-char	*ft_strtoupper(char *string)
+int	error(char *str, char *string)
 {
-	char *p_string;
-
-	p_string = string;
-	while(*p_string)
-	{
-		*p_string = ft_toupper(*p_string);
-		p_string++;
-	}
-	return (string);
+	ft_putstr(str);
+	free(string);
+	return (-1);
 }

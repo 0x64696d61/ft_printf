@@ -1,71 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   processor.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/24 20:59:48 by pstrait           #+#    #+#             */
+/*   Updated: 2021/01/24 21:02:59 by pstrait          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/ft_printf.h"
 
-// left flags: X%
-// do flags: x
-// done flags: suidcp
-int run_processor(struct s_flags *flag, va_list *ap)
+int	run_processor(struct s_flags *flag, va_list *ap)
 {
-	int size = 0;
-	if (DEBUG)
-		printf("\nDEBUG MODE: Input data to run_processor\n");
+	int size;
 
+	size = 0;
 	if (flag->width == -1)
 		flag->width = va_arg(*ap, int);
 	if (flag->precision == -1)
 		flag->precision = va_arg(*ap, int);
-
-	if (DEBUG_FLAGS)
-		print_flags(flag);
-
 	if (flag->conversion == CHAR)
-	{
-		if (DEBUG)
-			printf("This is CHAR\n");
 		size = draw_char(flag, ap);
-	}
-
 	else if (flag->conversion == STRING)
-	{
-		if (DEBUG)
-			printf("This is STRING\n");
 		size = draw_string(flag, ap);
-	}
-
 	else if (flag->conversion == U_INTEGER)
-	{
-		if (DEBUG)
-			printf("This is U_INTEGER\n");
 		size = draw_u_integer(flag, ap);
-	}
-
 	else if (flag->conversion == INTEGER)
-	{
-		if (DEBUG)
-			printf("This is INTEGER\n");
 		size = draw_integer(flag, ap);
-	}
-
 	else if (flag->conversion == POINTER)
-	{
-		if (DEBUG)
-			printf("This is POINTER\n");
 		size = draw_pointer(flag, ap);
-	}
 	else if (flag->conversion == HEX || flag->conversion == HEX_UPPER)
-	{
-		if (DEBUG)
-			printf("This is HEX\n");
 		size = draw_hex(flag, ap);
-	}
 	else if (flag->conversion == PERCENT)
-	{
-		if (DEBUG)
-			printf("This is PERCENT\n");
 		size = draw_percent(flag);
-	}
 	else
 		printf("Error\n");
-
 	return (size);
 }
 
@@ -76,13 +47,12 @@ char	*fill_line(char *string, int offset, struct s_flags flag)
 
 	if (!string)
 		return (string);
+	//// FIX ME
 	str = malloc(sizeof(char*) * offset + 1);
 	if (str == NULL)
 		return (NULL);
-
 	str[offset] = '\0';
 	ft_memset(str, flag.zero, offset);
-
 	if (flag.minus)
 		str1 = ft_strjoin(string, str);
 	else
@@ -94,7 +64,7 @@ char	*fill_line(char *string, int offset, struct s_flags flag)
 
 char	*string_builder(char *string, struct s_flags *flag)
 {
-	int		offset;
+	int	offset;
 
 	if (flag->precision)
 		if (((int)ft_strlen(string) > flag->precision))
@@ -107,9 +77,8 @@ char	*string_builder(char *string, struct s_flags *flag)
 			offset = (flag->width + (int)ft_strlen(string)) * -1;
 			string = fill_line(string, offset, *flag);
 		}
-		else
-			if ((offset = flag->width - (int)ft_strlen(string)) > 0)
-				string = fill_line(string, offset, *flag);
+		else if ((offset = flag->width - (int)ft_strlen(string)) > 0)
+			string = fill_line(string, offset, *flag);
 	}
 	return (string);
 }

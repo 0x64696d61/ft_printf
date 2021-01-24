@@ -97,13 +97,16 @@ int main()
 
  	a = 4;
 	b = 0;
-	int size1 = printf("%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
-	printf("\n\n");
-	int size2 = ft_printf("%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
-	printf("\n");
+	//int size1 = printf("%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
 
-	printf("%d\n", size1);
-	printf("%d\n", size2);
+	//Test 204
+	int size1 =    printf("%0183.%" );
+	ft_putstr("\n\n");
+	int size2 = ft_printf  ("%0183.%");
+	//printf("\n");
+
+//^@, ^@, ^@    ,      ^@,    ^@, ^@, ^@, ^@, ^@
+//^@, ^@ , ^@   ,     ^@,   ^@, ^@, ^@, ^@, ^@
 
 	//
 	// printf("\n");

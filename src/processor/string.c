@@ -6,7 +6,7 @@
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 21:54:48 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/23 18:25:05 by pstrait          ###   ########.fr       */
+/*   Updated: 2021/01/24 20:59:03 by pstrait          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	draw_string(struct s_flags *flag, va_list *ap)
 {
-	char *string;
-	int size;
+	char	*string;
+	int		size;
 
 	string = va_arg(*ap, char*);
 	if (!string)

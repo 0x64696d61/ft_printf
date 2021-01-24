@@ -6,7 +6,7 @@
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:13:32 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/23 23:25:41 by pstrait          ###   ########.fr       */
+/*   Updated: 2021/01/24 18:28:09 by pstrait          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ int		draw_percent(struct s_flags *flag);
 int		draw_hex(struct s_flags *flag, va_list *ap);
 int		valid_input(char **str);
 int		decode_conversion(char *str);
+int		error(char *str, char *string);
 
 #endif

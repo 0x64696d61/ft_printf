@@ -11,7 +11,8 @@ SRC_FILES =	ft_printf.c \
 			processor/char.c \
 			processor/pointer.c \
 			processor/percent.c \
-			processor/hex.c
+			processor/hex.c \
+			processor/utill.c
 
 OBJS =		${addprefix ${SRC_DIR},${SRC_FILES:.c=.o}}
 

@@ -6,7 +6,7 @@
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 22:23:59 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/23 23:22:13 by pstrait          ###   ########.fr       */
+/*   Updated: 2021/01/24 19:45:13 by pstrait          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,5 @@ char	*ft_itoa(long n)
 		buff[--i] = 48 + (num % 10);
 		num = num / 10;
 	}
-	// if ((n > 0) && (ft_strlen(buff) > 10))
-	// 	buff[10] = '\0';
-	// else if ((n < 0) && (ft_strlen(buff) > 11))
-	// 	buff[11] = '\0';
 	return (buff);
 }
