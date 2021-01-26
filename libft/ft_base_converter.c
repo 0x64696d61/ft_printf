@@ -6,7 +6,7 @@
 /*   By: pstrait <pstrait@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 14:29:33 by pstrait           #+#    #+#             */
-/*   Updated: 2021/01/24 22:36:17 by pstrait          ###   ########.fr       */
+/*   Updated: 2021/01/26 07:08:56 by pstrait          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ char	*ft_base_converter(unsigned long long num, int notation)
 		mas[i++] = 0;
 	}
 	string = malloc(sizeof(char) * i + 1);
+	if (string == NULL)
+		return (string);
 	string[0] = '0';
 	string[i] = '\0';
 	p_sring = string;
